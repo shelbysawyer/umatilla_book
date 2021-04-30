@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Chapter 5: Priority Reaches | Umatilla Sub-Basin</title>
-  <meta name="description" content="Chapter 5 Chapter 5: Priority Reaches | Umatilla Sub-Basin" />
+  <title>Chapter 4 Land Use of Area Surrounding Reaches | Umatilla Sub-Basin</title>
+  <meta name="description" content="Chapter 4 Land Use of Area Surrounding Reaches | Umatilla Sub-Basin" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Chapter 5: Priority Reaches | Umatilla Sub-Basin" />
+  <meta property="og:title" content="Chapter 4 Land Use of Area Surrounding Reaches | Umatilla Sub-Basin" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Chapter 5: Priority Reaches | Umatilla Sub-Basin" />
+  <meta name="twitter:title" content="Chapter 4 Land Use of Area Surrounding Reaches | Umatilla Sub-Basin" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="land-use-of-area-surrounding-reaches.html"/>
-<link rel="next" href="chapter-6-references.html"/>
+<link rel="prev" href="stream-reach-temperatures-by-elevation.html"/>
+<link rel="next" href="chapter-5-priority-reaches.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,18 +170,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapter-5-priority-reaches" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Chapter 5: Priority Reaches</h1>
-<p>Climate change is expected to significantly influence natural flows in the coming years. I determined the top 10 reaches in my watershed that will experience the greatest decrease (as a percent) in projected low flow rates between 2040 and 2080 and create a csv file with their information attached.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter-5-priority-reaches.html#cb21-1" aria-hidden="true" tabindex="-1"></a>flows<span class="sc">$</span>difference <span class="ot">&lt;-</span> ((flows<span class="sc">$</span>lowflow_2040_cfs <span class="sc">-</span> flows<span class="sc">$</span>lowflow_2080_cfs) <span class="sc">/</span> </span>
-<span id="cb21-2"><a href="chapter-5-priority-reaches.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  flows<span class="sc">$</span>lowflow_2040_cfs) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb21-3"><a href="chapter-5-priority-reaches.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="chapter-5-priority-reaches.html#cb21-4" aria-hidden="true" tabindex="-1"></a>flows_sort <span class="ot">&lt;-</span> flows[<span class="fu">order</span>(<span class="sc">-</span>flows<span class="sc">$</span>difference),]</span>
-<span id="cb21-5"><a href="chapter-5-priority-reaches.html#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="chapter-5-priority-reaches.html#cb21-6" aria-hidden="true" tabindex="-1"></a>flows_top10 <span class="ot">&lt;-</span> flows_sort[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb21-7"><a href="chapter-5-priority-reaches.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="chapter-5-priority-reaches.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(flows_top10, <span class="st">&quot;data</span><span class="sc">\\</span><span class="st">flows_top10.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>Having a list of the top 10 reaches that are predicted to experience the greatest decrease in low flows helps natural resource managers make decisions about how to prioritize conservation funding and efforts.</p>
+<div id="land-use-of-area-surrounding-reaches" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Land Use of Area Surrounding Reaches</h1>
+<p>Each reach was given an associated land use. I mapped these to understand if certain areas of the watershed were dominated by a specific land use / agricultural intensity.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="land-use-of-area-surrounding-reaches.html#cb19-1" aria-hidden="true" tabindex="-1"></a>flows <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="land-use-of-area-surrounding-reaches.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(reaches, <span class="at">by =</span> <span class="st">&quot;reach_name&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="land-use-of-area-surrounding-reaches.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">color =</span> system_id)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="land-use-of-area-surrounding-reaches.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href="land-use-of-area-surrounding-reaches.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="land-use-of-area-surrounding-reaches.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">fill =</span> <span class="st">&#39;Agricultural Intensity&#39;</span>,</span>
+<span id="cb19-7"><a href="land-use-of-area-surrounding-reaches.html#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&#39;Decimal Degrees&#39;</span>, </span>
+<span id="cb19-8"><a href="land-use-of-area-surrounding-reaches.html#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&#39;Decimal Degrees&#39;</span>,</span>
+<span id="cb19-9"><a href="land-use-of-area-surrounding-reaches.html#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&#39;Agricultural Intensity&#39;</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="land-use-of-area-surrounding-reaches.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 227 rows containing missing values (geom_point).</code></pre>
+<p><img src="UmatillaSubBasin_files/figure-html/landuse1-1.png" width="672" /></p>
+<p>This map shows me that certain areas are dominated by single land uses. For example, I can see that the upper reaches are associated with non-agricultural land use. As we travel downstream, we go through an area of non-irrigated agricultural land, then a small urban area, and then the lower reaches are associated mostly with irrigated agriculture. Agriculture-dominated landscapes, particularly those that are irrigated by drawing water from the river, can be detrimental to the quality of wildlife habitat in that riverscape. Therefore, understanding where irrigated agriculture and other land uses fall within the watershed is an important part of understanding the overall watershed setting.</p>
 
 </div>
             </section>
@@ -189,8 +193,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="land-use-of-area-surrounding-reaches.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chapter-6-references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stream-reach-temperatures-by-elevation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter-5-priority-reaches.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

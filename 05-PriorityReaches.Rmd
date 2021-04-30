@@ -1,2 +1,20 @@
 # Chapter 5: Priority Reaches
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Climate change is expected to significantly influence natural flows in the coming years. I determined the top 10 reaches in my watershed that will experience the greatest decrease (as a percent) in projected low flow rates between 2040 and 2080 and create a csv file with their information attached.
+
+```{r priority1, eval = FALSE}
+flows$difference <- ((flows$lowflow_2040_cfs - flows$lowflow_2080_cfs) / 
+  flows$lowflow_2040_cfs) * 100
+
+flows_sort <- flows[order(-flows$difference),]
+
+flows_top10 <- flows_sort[1:10,]
+
+write.csv(flows_top10, "data\\flows_top10.csv", row.names = FALSE)
+```
+
+```{r priority2, echo = FALSE, eval = TRUE}
+knitr::include_graphics("figures/top10.png")
+```
+
+Having a list of the top 10 reaches that are predicted to experience the greatest decrease in low flows helps natural resource managers make decisions about how to prioritize conservation funding and efforts.

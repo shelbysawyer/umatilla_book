@@ -1,13 +1,50 @@
-# Chapter 3: Temperature across Elevation
+# Stream Reach Temperatures by Elevation
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+The sampled reaches are associated with different elevations throughout the watershed. I will map the distribution here and color code points by which river they belong to.
+
+```{r temperature1, eval = TRUE}
+library(ggplot2)
+
+reaches %>%
+  ggplot(aes(y = elevation_m, x = temp_rank, color = river_name)) +
+  geom_point() +
+  theme_minimal() +
+  labs(fill = 'Total Upstream Drainage Area (sqKm)',
+       y = 'Elevation (m)', 
+       x = 'Temperature (m)', 
+       color = 'River') +
+  theme(legend.position = "bottom")
 ```
+As expected, the temperature rank for the sampled reaches tends to be higher in lower elevations. This would be helpful if I was trying to understand how temperature changes throughout a river as elevation decreases and rivers gain more tributaries.
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

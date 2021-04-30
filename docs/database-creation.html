@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Database Creation | Umatilla Sub-Basin</title>
+  <meta name="description" content="Chapter 2 Database Creation | Umatilla Sub-Basin" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Database Creation | Umatilla Sub-Basin" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Database Creation | Umatilla Sub-Basin" />
+  
+  
+  
+
+<meta name="author" content="Shelby Sawyer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="stream-reach-temperatures-by-elevation.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#project-outline"><i class="fa fa-check"></i><b>1.2</b> Project Outline</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#the-umatilla-sub-basin"><i class="fa fa-check"></i><b>1.3</b> The Umatilla Sub-Basin</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="database-creation.html"><a href="database-creation.html"><i class="fa fa-check"></i><b>2</b> Database Creation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="database-creation.html"><a href="database-creation.html#reaches"><i class="fa fa-check"></i><b>2.1</b> Reaches</a></li>
+<li class="chapter" data-level="2.2" data-path="database-creation.html"><a href="database-creation.html#flows"><i class="fa fa-check"></i><b>2.2</b> Flows</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stream-reach-temperatures-by-elevation.html"><a href="stream-reach-temperatures-by-elevation.html"><i class="fa fa-check"></i><b>3</b> Stream Reach Temperatures by Elevation</a></li>
+<li class="chapter" data-level="4" data-path="land-use-of-area-surrounding-reaches.html"><a href="land-use-of-area-surrounding-reaches.html"><i class="fa fa-check"></i><b>4</b> Land Use of Area Surrounding Reaches</a></li>
+<li class="chapter" data-level="5" data-path="chapter-5-priority-reaches.html"><a href="chapter-5-priority-reaches.html"><i class="fa fa-check"></i><b>5</b> Chapter 5: Priority Reaches</a></li>
+<li class="chapter" data-level="6" data-path="chapter-6-references.html"><a href="chapter-6-references.html"><i class="fa fa-check"></i><b>6</b> Chapter 6: References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Umatilla Sub-Basin</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="database-creation" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Database Creation</h1>
+<p>This database is sourced from the open-source data provided by DeBano et al., 2016, which I accessed through Dryad. This data was collected to better understand the influences of climate change and agriculture on aquatic habitat in the Umatilla Sub-Basin. I used a relational database to house my data:</p>
+<p><img src="figures/databasestructure.png" /><!-- --></p>
+<p>The database has 2 tables: <em>reaches</em> and <em>flows</em>. The <em>reaches</em> table contains information on the individual reaches with temperature data available, including what river the reach belongs to, the GPS location of the reach, the elevation, and the temperature. The <em>flows</em> table contains information on individual reaches that I have information on flows for, including reach length, upstream drainage area, the current flow rate, the predicted flow rates for years 2040 and 2080, and the land use setting. Primary keys are shown in italics and foreign keys are shown in bold.</p>
+<p>I created a database in RSQLite to house the data.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="database-creation.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb1-2"><a href="database-creation.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.5
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="database-creation.html#cb7-1" aria-hidden="true" tabindex="-1"></a>UmatillaSubBasin_db <span class="ot">&lt;-</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">&quot;../UmatillaSubBasin.db&quot;</span>)</span></code></pre></div>
+<div id="reaches" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Reaches</h2>
+<p>First, I created the reaches table with reach_name as the primary key.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="database-creation.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(UmatillaSubBasin_db, <span class="st">&quot;CREATE TABLE reaches (</span></span>
+<span id="cb8-2"><a href="database-creation.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">          reach_name,</span></span>
+<span id="cb8-3"><a href="database-creation.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">          river_name,</span></span>
+<span id="cb8-4"><a href="database-creation.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">          lat,</span></span>
+<span id="cb8-5"><a href="database-creation.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">          long,</span></span>
+<span id="cb8-6"><a href="database-creation.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">          elevation_m,</span></span>
+<span id="cb8-7"><a href="database-creation.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">          temp_rank</span></span>
+<span id="cb8-8"><a href="database-creation.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">          PRIMARY KEY (reach_name)</span></span>
+<span id="cb8-9"><a href="database-creation.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
+<p>Then, I loaded the reaches data from a csv into the reaches table.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="database-creation.html#cb9-1" aria-hidden="true" tabindex="-1"></a>reaches <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;../data/reaches.csv&quot;</span>, </span>
+<span id="cb9-2"><a href="database-creation.html#cb9-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-3"><a href="database-creation.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(reaches)</span>
+<span id="cb9-4"><a href="database-creation.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="database-creation.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;reach_name&quot;  &quot;river_name&quot;  &quot;lat&quot;         &quot;long&quot;        &quot;elevation_m&quot;</span></span>
+<span id="cb9-6"><a href="database-creation.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [6] &quot;temp_rank&quot;</span></span>
+<span id="cb9-7"><a href="database-creation.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="database-creation.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(reaches)[<span class="dv">1</span>]<span class="ot">&lt;-</span> <span class="st">&quot;reach_name&quot;</span></span></code></pre></div>
+<p>Next, I imported the data into the table and ran a query to make sure it was reading correctly.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="database-creation.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(UmatillaSubBasin_db, <span class="st">&quot;reaches&quot;</span>, reaches, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="database-creation.html#cb11-1" aria-hidden="true" tabindex="-1"></a>reaches <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(UmatillaSubBasin_db, <span class="st">&quot;SELECT * FROM reaches;&quot;</span>)</span>
+<span id="cb11-2"><a href="database-creation.html#cb11-2" aria-hidden="true" tabindex="-1"></a>reaches</span></code></pre></div>
+<pre><code>##                reach_name                   river_name      lat      long
+## 1                Buck Cr3                   Buck Creek 45.70822 -118.1374
+## 2            Buckaroo Cr3               Buckaroo Creek 45.65041 -118.4947
+## 3              Butter Cr7                 Butter Creek 45.58120 -119.4191
+## 4                Camp Cr3                   Camp Creek 45.58520 -118.3135
+## 5            Coonskin Cr3               Coonskin Creek 45.67484 -118.5448
+## 6                Eagle Cr                  Eagle Creek 45.76249 -118.4455
+## 7          Greasewood Cr1             Greasewood Creek 45.73923 -118.6143
+## 8               McKay Cr1                  McCay Creek 45.66801 -118.8382
+## 9               McKay Cr3                  McCay Creek 45.60793 -118.7953
+## 10              McKay Cr5                  McCay Creek 45.60793 -118.7953
+## 11           McKay NF Cr1     McCay Creek (North Fork) 45.50695 -118.6168
+## 12           Meacham Cr12                Meacham Creek 45.50297 -118.4221
+## 13            Meacham Cr3                Meacham Creek 45.64309 -118.3592
+## 14            Meacham Cr4                Meacham Creek 45.56971 -118.3181
+## 15            Mission Cr5                Mission Creek 45.66021 -118.6417
+## 16            Mission Cr7                Mission Creek 45.62949 -118.6200
+## 17          Moonshine Cr3              Moonshine Creek 45.65989 -118.5663
+## 18                Ryan Cr                   Ryan Creek 45.71088 -118.3122
+## 19 Spring Hollow Cr2 (WH)          Spring Hollow Creek 45.75295 -118.5147
+## 20 Spring Hollow Cr4 (WH)          Spring Hollow Creek 45.74638 -118.4873
+## 21              Squaw Cr1               Umatilla River 45.69998 -118.4003
+## 22              Squaw Cr3            Isqauulktpe Creek 45.67212 -118.4014
+## 23           Stage Gulch1              Stanfield Drain 45.78324 -119.2354
+## 24             Thomas Cr1                 Thomas Creek 45.68008 -118.1974
+## 25                 UM NF1  Umatilla River (North Fork) 45.73244 -118.1409
+## 26                 UM NF2  Umatilla River (North Fork) 45.72920 -118.1125
+## 27                   UM15               Umatilla River 45.79554 -119.3278
+## 28                   UM16               Umatilla River 45.78366 -119.2372
+## 29                   UM17               Umatilla River 45.77854 -119.2255
+## 30                   UM21               Umatilla River 45.72815 -119.1936
+## 31                   UM23               Umatilla River 45.72140 -119.1789
+## 32                   UM25               Umatilla River 45.69100 -119.1193
+## 33                   UM26               Umatilla River 45.67706 -119.0367
+## 34                   UM27               Umatilla River 45.67691 -119.0055
+## 35                   UM28               Umatilla River 45.66329 -118.9709
+## 36                   UM29               Umatilla River 45.65837 -118.8748
+## 37                   UM32               Umatilla River 45.67119 -118.8376
+## 38                   UM33               Umatilla River 45.67589 -118.7826
+## 39                   UM34               Umatilla River 45.67360 -118.7531
+## 40                   UM37               Umatilla River 45.67195 -118.6204
+## 41                   UM38               Umatilla River 45.67850 -118.5781
+## 42                   UM39               Umatilla River 45.67594 -118.5522
+## 43                   UM40               Umatilla River 45.68383 -118.5385
+## 44                   UM41                  Thornhollow 45.68460 -118.4554
+## 45                   UM43 Imeques Acclimation Facility 45.70675 -118.3502
+## 46                   UM45               Umatilla River 45.72342 -118.3189
+## 47                   UM46               Umatilla River 45.72280 -118.3146
+## 48                   UM47               Umatilla River 45.72232 -118.2978
+## 49                   UM50               Umatilla River 45.74221 -118.2410
+## 50                   UM53               Umatilla River 45.72873 -118.1970
+## 51                    UM6       Hermistron North Drain 45.86147 -119.3141
+## 52                    UM7               Umatilla River 45.83983 -119.3356
+## 53          Wildhorse Cr1              Wildhorse Creek 45.67854 -118.7653
+## 54         Wildhorse Cr13              Wildhorse Creek 45.74721 -118.3842
+## 55          Wildhorse Cr3              Wildhorse Creek 45.68565 -118.7472
+## 56          Wildhorse Cr6              Wildhorse Creek 45.73854 -118.6131
+## 57          Wildhorse Cr8              Wildhorse Creek 45.80879 -118.5000
+##    elevation_m temp_rank
+## 1    1215.3084  1.500000
+## 2     585.5771  3.512500
+## 3     403.8002  3.742857
+## 4     809.9625  2.370000
+## 5     504.9989  2.300000
+## 6     662.5066  3.000000
+## 7     425.5647  3.500000
+## 8     329.2695  2.094737
+## 9     364.2788  2.400000
+## 10    389.8175  2.400000
+## 11    582.7155  3.450000
+## 12   1119.4525  3.300000
+## 13    636.8636  2.428571
+## 14    691.8829  2.200000
+## 15    467.0347  1.500000
+## 16    547.7356  1.542857
+## 17    626.2425  3.450000
+## 18    803.7913  1.500000
+## 19    538.1581  2.800000
+## 20    581.4279  3.200000
+## 21    515.6957  3.500000
+## 22    555.8124  2.633333
+## 23    178.0883  3.500000
+## 24    837.2876  1.540000
+## 25    755.7911  1.333333
+## 26    886.4680  1.400000
+## 27    164.6618  3.968750
+## 28    169.3329  3.471429
+## 29    180.0052  3.400000
+## 30    198.1235  3.518750
+## 31    209.5341  3.500000
+## 32    219.5095  3.515000
+## 33    229.3227  3.484615
+## 34    245.6639  3.500000
+## 35    269.9384  3.239130
+## 36    291.4514  2.616667
+## 37    306.0011  3.944444
+## 38    321.4170  3.833333
+## 39    348.7565  3.625000
+## 40    403.5500  3.566667
+## 41    418.2444  3.500000
+## 42    430.9405  3.483333
+## 43    455.2603  3.487500
+## 44    495.2198  3.457143
+## 45    544.9147  3.442857
+## 46    571.8146  3.350000
+## 47    585.8170  3.223077
+## 48    603.0432  2.900000
+## 49    651.4458  1.727273
+## 50    703.4319  1.500000
+## 51    125.2695  3.833333
+## 52    130.7791  3.625000
+## 53    333.7985  3.750000
+## 54    765.4791  3.200000
+## 55    359.4224  3.833333
+## 56    445.3358  3.500000
+## 57    497.2034  3.433333</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="database-creation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(UmatillaSubBasin_db, <span class="st">&quot;SELECT * FROM reaches LIMIT 10;&quot;</span>)</span></code></pre></div>
+<pre><code>##        reach_name       river_name      lat      long elevation_m temp_rank
+## 1        Buck Cr3       Buck Creek 45.70822 -118.1374   1215.3084  1.500000
+## 2    Buckaroo Cr3   Buckaroo Creek 45.65041 -118.4947    585.5771  3.512500
+## 3      Butter Cr7     Butter Creek 45.58120 -119.4191    403.8002  3.742857
+## 4        Camp Cr3       Camp Creek 45.58520 -118.3135    809.9625  2.370000
+## 5    Coonskin Cr3   Coonskin Creek 45.67484 -118.5448    504.9989  2.300000
+## 6        Eagle Cr      Eagle Creek 45.76249 -118.4455    662.5066  3.000000
+## 7  Greasewood Cr1 Greasewood Creek 45.73923 -118.6143    425.5647  3.500000
+## 8       McKay Cr1      McCay Creek 45.66801 -118.8382    329.2695  2.094737
+## 9       McKay Cr3      McCay Creek 45.60793 -118.7953    364.2788  2.400000
+## 10      McKay Cr5      McCay Creek 45.60793 -118.7953    389.8175  2.400000</code></pre>
+</div>
+<div id="flows" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Flows</h2>
+<p>I created the flows table with reach_name as the foreign key.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="database-creation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(UmatillaSubBasin_db, <span class="st">&quot;CREATE TABLE flows (</span></span>
+<span id="cb15-2"><a href="database-creation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">          reach_name,</span></span>
+<span id="cb15-3"><a href="database-creation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">          reach_length_m,</span></span>
+<span id="cb15-4"><a href="database-creation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">          drainage_ha,</span></span>
+<span id="cb15-5"><a href="database-creation.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">          currentflow_cfs,</span></span>
+<span id="cb15-6"><a href="database-creation.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">          lowflow_2040_cfs,</span></span>
+<span id="cb15-7"><a href="database-creation.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">          lowflow_2080_cfs,</span></span>
+<span id="cb15-8"><a href="database-creation.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">          system_id,</span></span>
+<span id="cb15-9"><a href="database-creation.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="st">          FOREIGN KEY(reach_name) REFERENCES reaches(reach_name)</span></span>
+<span id="cb15-10"><a href="database-creation.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
+<p>Next, I loaded the flows data from a csv into the flows table.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="database-creation.html#cb16-1" aria-hidden="true" tabindex="-1"></a>flows <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;../data/flows.csv&quot;</span>, </span>
+<span id="cb16-2"><a href="database-creation.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Then, I imported the data into the table. This table only stores information on the reaches where temperature was sampled. I also ran a query to check that it was working properly.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="database-creation.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(UmatillaSubBasin_db, <span class="st">&quot;flows&quot;</span>, flows, <span class="at">append =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-2"><a href="database-creation.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="database-creation.html#cb17-3" aria-hidden="true" tabindex="-1"></a>flows <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(UmatillaSubBasin_db, <span class="st">&quot;SELECT * FROM flows;&quot;</span>)</span>
+<span id="cb17-4"><a href="database-creation.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="database-creation.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(UmatillaSubBasin_db, <span class="st">&quot;SELECT * FROM flows LIMIT 10;&quot;</span>)</span>
+<span id="cb17-6"><a href="database-creation.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">###    reach_name          reach_length_m drainage_ha    currentflow_cfs lowflow_2040_cfs</span></span>
+<span id="cb17-7"><a href="database-creation.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     Bachelor Canyon        1370.08      778.40            1.63             1.49</span></span>
+<span id="cb17-8"><a href="database-creation.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2           Bassey Cr        8754.77     1559.67            2.54             2.29</span></span>
+<span id="cb17-9"><a href="database-creation.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3           Bear (UM)        4651.86     1159.99            2.10             1.91</span></span>
+<span id="cb17-10"><a href="database-creation.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     Bear Cr (McKay)        1473.40      537.70            0.98             0.90</span></span>
+<span id="cb17-11"><a href="database-creation.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    Bear Cr1 (Birch)        5253.53    10949.60           18.75            17.08</span></span>
+<span id="cb17-12"><a href="database-creation.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  Bear Cr1 (Meacham)        1816.61     3255.40            6.50             5.95</span></span>
+<span id="cb17-13"><a href="database-creation.html#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 7    Bear Cr2 (Birch)       17442.18     3343.84            6.20             5.63</span></span>
+<span id="cb17-14"><a href="database-creation.html#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  Bear Cr2 (Meacham)        4066.95     1735.04            3.25             2.97</span></span>
+<span id="cb17-15"><a href="database-creation.html#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 9          Beaver Cr1        1889.15     2033.90            4.27             3.91</span></span>
+<span id="cb17-16"><a href="database-creation.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#10         Beaver Cr3         238.66     1211.95            1.79             1.64</span></span>
+<span id="cb17-17"><a href="database-creation.html#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="database-creation.html#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="do">#########lowflow_2080_cfs </span></span>
+<span id="cb17-19"><a href="database-creation.html#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 1              1.41</span></span>
+<span id="cb17-20"><a href="database-creation.html#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2              2.14</span></span>
+<span id="cb17-21"><a href="database-creation.html#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 3              1.76</span></span>
+<span id="cb17-22"><a href="database-creation.html#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4              0.86</span></span>
+<span id="cb17-23"><a href="database-creation.html#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 5             16.23</span></span>
+<span id="cb17-24"><a href="database-creation.html#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 6              5.52</span></span>
+<span id="cb17-25"><a href="database-creation.html#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 7              5.39</span></span>
+<span id="cb17-26"><a href="database-creation.html#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 8              2.75</span></span>
+<span id="cb17-27"><a href="database-creation.html#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 9              3.67</span></span>
+<span id="cb17-28"><a href="database-creation.html#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 10             1.54</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stream-reach-temperatures-by-elevation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["UmatillaSubBasin.pdf", "UmatillaSubBasin.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

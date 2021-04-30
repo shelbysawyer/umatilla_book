@@ -1,7 +1,18 @@
-# Chapter 4: Agricultural Intensity
+# Land Use of Area Surrounding Reaches
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Each reach was given an associated land use. I mapped these to understand if certain areas of the watershed were dominated by a specific land use / agricultural intensity.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r landuse1, eval = TRUE}
+flows %>%
+  left_join(reaches, by = "reach_name") %>%
+  ggplot(aes(x = long, y = lat, color = system_id)) +
+  geom_point() +
+  theme_minimal() +
+  labs( fill = 'Agricultural Intensity',
+        x = 'Decimal Degrees', 
+        y = 'Decimal Degrees',
+        color = 'Agricultural Intensity') +
+  theme_minimal()
+```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+This map shows me that certain areas are dominated by single land uses. For example, I can see that the upper reaches are associated with non-agricultural land use. As we travel downstream, we go through an area of non-irrigated agricultural land, then a small urban area, and then the lower reaches are associated mostly with irrigated agriculture. Agriculture-dominated landscapes, particularly those that are irrigated by drawing water from the river, can be detrimental to the quality of wildlife habitat in that riverscape. Therefore, understanding where irrigated agriculture and other land uses fall within the watershed is an important part of understanding the overall watershed setting. 
